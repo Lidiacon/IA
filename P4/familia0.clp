@@ -99,8 +99,11 @@
     => 
     (assert (ascendiente ?x ?y)))
 
-(defrule ascendienteAP
-    )
+(defrule ascendienteAP 
+    (ascendiente ?x ?y)
+    (padre ?z ?x)
+    =>
+    (assert (ascendiente ?z ?y)))
 
 (defrule ascendienteM
     (madre ?x ?y)
