@@ -3,7 +3,7 @@
 (deftemplate usuario "Datos sobre el usuario. Serán rellenados desde Java"
 	(slot nick)
     (slot edad)
-    (slot aficiones)
+    (multislot aficiones)
     (slot prefPrecio)
     (slot dispositivo)
 )
@@ -14,23 +14,22 @@
     (slot genero)
     (slot tematica)
     (slot edad)
-    (slot SO)
+    (multislot SO)
 )
 ;hechos analizables
 (deffacts inicio
-    (usuario (nick herminigilda) (edad 62) (aficiones scifi) (prefPrecio 200) (dispositivo ios))
-    (app (nombre doomand) (precio 50) (genero accion) (tematica scifi) (edad adulto) (SO android))
+    (usuario (nick herminigilda) (edad 62) (aficiones scifi slice) (prefPrecio 200) (dispositivo ios))
+    (app (nombre doom) (precio 50) (genero accion) (tematica scifi) (edad adulto) (SO android ios win))
     (app (nombre undertale) (precio 10)(genero rpg)(tematica fantasia) (edad todos) (SO android))
-    (app (nombre doomos) (precio 50) (genero accion) (tematica scifi) (edad adulto) (SO ios))
-    (app (nombre doomwin) (precio 50) (genero accion) (tematica scifi) (edad adulto) (SO win))
     (app (nombre transistor) (precio 20) (genero rpg) (tematica scifi) (edad todos) (SO ios))
     (app (nombre meatboy) (precio 5) (genero plataformas) (tematica fantasia) (edad infantil) (SO win))
-    (app (nombre pidgeonfantasy) (precio 200) (genero rpg) (tematica slice) (edad todos) (SO ios)))
+    (app (nombre pidgeonfantasy) (precio 200) (genero rpg) (tematica slice) (edad todos) (SO ios))
+    (app (nombre overwatch) (precio 20) (genero accion) (tematica scifi) (edad todos) (SO android ios)))
 
 ;diferentes tipos de coincidencia
 (defrule disponibilidad "Comprueba si el dispositivo y la app son compatibles"
     (usuario (nick ?n)(dispositivo ?d1))
-    (app (nombre ?na)(SO ?d2))
+    (app (nombre ?na)(SO $? ?d2 $?))
     (test (eq ?d1 ?d2))
     =>
     (assert (disponibilidad ?n ?na)))
@@ -59,11 +58,18 @@
     (assert (menor ?n ?na)))
 
 (defrule tema "comprueba el tema"
-    (usuario (nick ?n)(aficiones ?d1))
+    (usuario (nick ?n)(aficiones $? ?d1 $?))
     (app (nombre ?na)(tematica ?d2))
-    (test (eq ?d2 ?d1))
+    (test (eq ?d1 ?d2))
     =>
     (assert (tema ?n ?na)))
+
+(defrule gen "comprueba el genero"
+    (usuario (nick ?n)(aficiones $? ?d1 $?))
+    (app (nombre ?na)(genero ?d2))
+    (test (eq ?d1 ?d2))
+    =>
+    (assert (gen ?n ?na)))
 
 ;aquí empieza la verdadera lista de recomendados
 (defrule recomen3a "coincidencia de SO y edad(a)"
@@ -84,21 +90,21 @@
     =>
     (assert (recomen3 ?n ?na)))
 
-(defrule recomen2 "coincidencia con tema"
+(defrule recomen2t "coincidencia con tema"
     (tema ?n ?na)
     (recomen3 ?n ?na)
     =>
+    (assert (recomen2 ?n ?na)))
+
+(defrule recomen2g "coincidencia con genero"
+    (gen ?n ?na)
+    (recomen3 ?n ?na)
+	=>
     (assert (recomen2 ?n ?na)))
 
 (defrule recomen1 "coincidencia con coste"
     (coste ?n ?na)
     (recomen2 ?n ?na)
     =>
-    (printout t ?na crlf)
     (assert (recomen1 ?n ?na)))
-
-(reset)
-(printout t "Estas son tus recomendaciones" crlf)
-(run)
-
 
