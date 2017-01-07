@@ -18,7 +18,7 @@
 )
 ;hechos analizables
 (deffacts inicio
-    (usuario (nick herminigilda) (edad 62) (aficiones scifi slice) (prefPrecio 200) (dispositivo ios))
+    (usuario (nick herminigilda) (edad 62) (aficiones scifi fantasia) (prefPrecio 200) (dispositivo ios))
     (app (nombre doom) (precio 50) (genero accion) (tematica scifi) (edad adulto) (SO android ios win))
     (app (nombre undertale) (precio 10)(genero rpg)(tematica fantasia) (edad todos) (SO android))
     (app (nombre transistor) (precio 20) (genero rpg) (tematica scifi) (edad todos) (SO ios))
@@ -107,4 +107,8 @@
     (recomen2 ?n ?na)
     =>
     (assert (recomen1 ?n ?na)))
+
+(run)
+(reset)
+
 

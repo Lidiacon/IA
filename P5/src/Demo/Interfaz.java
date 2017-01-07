@@ -1,25 +1,31 @@
 package Demo;
 
 import java.awt.BorderLayout;
-import java.awt.Component;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.Panel;
-import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
-import javax.swing.JMenuBar;
+import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.ListSelectionModel;
 import javax.swing.WindowConstants;
 import javax.swing.border.TitledBorder;
 
+import jess.JessException;
+
 public class Interfaz extends JFrame{
+	Codigo c = new Codigo();
+	private String[] sistemas = {"android", "ios", "win"};
+	private String[] tematica = {"", "fantasia", "scifi", "slice", "fantasia scifi", "scifi slice", "fantasia slice"};
+	private String[] genero = {"", "rpg", "accion", "plataformas", "rpg accion", "rpg plataformas", "accion plataformas"};
+	
 	public Interfaz(){
 		super("Ventana base");
 		initGUI();
@@ -27,52 +33,121 @@ public class Interfaz extends JFrame{
 	
 	private void initGUI(){
 		try{
-			setPreferredSize(new Dimension(600, 600));
+			setPreferredSize(new Dimension(1000, 600));
 			setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 			setVisible(true);
 			pack();
 			getContentPane().setLayout(new BorderLayout());
 			
-			//parte de arriba (datos usuario)
-			JPanel north = new JPanel();
-			//north.setLayout(new FlowLayout());
-			north.setBorder(new TitledBorder("Nuevo Usuario"));
-			this.add(north, BorderLayout.NORTH);
+			//panel para nuevo usuario
+			JPanel northUser = new JPanel();
+			northUser.setBorder(new TitledBorder("Nuevo Usuario"));
+			northUser.setPreferredSize(new Dimension(1000, 110));
+			this.add(northUser, BorderLayout.NORTH);
 			
-			JTextField uNick = new JTextField();
+			
+			//nick
+			final JTextField uNick = new JTextField();
 			uNick.setBorder(new TitledBorder("Nick"));
-			north.add(uNick);
+			northUser.add(uNick);
 			uNick.setPreferredSize(new Dimension(150, 40));
 			
-			JTextField uPrecio = new JTextField();
+			
+			final JTextField uEdad = new JTextField();
+			uEdad.setBorder(new TitledBorder("Edad"));
+			uEdad.setPreferredSize(new Dimension(150, 40));
+			northUser.add(uEdad);
+			
+			final JComboBox<String> uGenero = new JComboBox<String>(genero);
+			uGenero.setBorder(new TitledBorder("Genero(s)"));
+			uGenero.setPreferredSize(new Dimension(150, 50));
+			northUser.add(uGenero);
+			
+			final JComboBox<String> uTematica = new JComboBox<String>(tematica);
+			uTematica.setBorder(new TitledBorder("Tematica(s)"));
+			uTematica.setPreferredSize(new Dimension(150, 50));
+			northUser.add(uTematica);
+			/*final JTextField uAficion = new JTextField();
+			uAficion.setBorder(new TitledBorder("Aficiones"));
+			uAficion.setPreferredSize(new Dimension(150, 40));
+			northUser.add(uAficion);*/
+			
+			final JTextField uPrecio = new JTextField();
 			uPrecio.setBorder(new TitledBorder("Precio máx."));
 			uPrecio.setPreferredSize(new Dimension(150, 40));
-			north.add(uPrecio);
-			
-			String[] sistemas = {"Android", "iOS", "Windows"};
-			JComboBox SOs = new JComboBox(sistemas);
+			northUser.add(uPrecio);
+					
+			final JComboBox<String> SOs = new JComboBox<String>(sistemas);
 			SOs.setBorder(new TitledBorder("Sistema Operativo"));
-			north.add(SOs);
+			SOs.setPreferredSize(new Dimension(150, 50));
+			northUser.add(SOs);
 			
 			
 			//BorderLayout con ComboBox arriba para opciones y GridLayout en el centro
 			//se muestran 2 columnas de 5 aplicaciones
-			JPanel capaApps = new JPanel();
+			//JPanel capaApps = new JPanel();
 			
-			JButton app = new JButton("APP");
-			app.addActionListener(new ActionListener(){
+			JButton crearUser = new JButton("Buscar");
+			crearUser.addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e){
-					String informacion = "Info de la app: \n Nombre: \n Tipo: \n Caracteristicas: \n";
-					JOptionPane.showMessageDialog(null, informacion, "Informacion de la app", JOptionPane.INFORMATION_MESSAGE);
+					String n = uNick.getText();
+					if (n.length() == 0){
+						JOptionPane.showMessageDialog(null, "Nombre vacio", "Error en datos de usuario", JOptionPane.ERROR_MESSAGE);
+						return;
+					}
+					System.out.println("nick: " + n);
+					int ed = 0;
+					try{
+						ed = Integer.parseInt(uEdad.getText());
+						System.out.println("edad: " + ed);
+					}catch(NumberFormatException nfe1){
+						JOptionPane.showMessageDialog(null, "Edad no valida", "Error en datos de usuario", JOptionPane.ERROR_MESSAGE);
+						return;
+					}
+					
+					String af = uGenero.getSelectedItem().toString() + " " + uTematica.getSelectedItem().toString();
+					System.out.println("aficion: " + af);
+					
+					int pr = 0;
+					try{
+						pr = Integer.parseInt(uPrecio.getText());
+						System.out.println("precio: " + pr);
+					}catch(NumberFormatException nfe1){
+						JOptionPane.showMessageDialog(null, "Precio no valido", "Error en datos de usuario", JOptionPane.ERROR_MESSAGE);
+						return;
+					}
+					System.out.println("precio: " + pr);
+					
+					String so = SOs.getSelectedItem().toString();
+					System.out.println("sistema: " + so);
+					try {
+						String lista = c.creaUsuario(n,ed,af,pr,so);
+						if (lista.length() == 0)
+							JOptionPane.showMessageDialog(null,"Lo sentimos, no hay recomendaciones para ti :(", "Recomendaciones para " + n, JOptionPane.INFORMATION_MESSAGE);
+						else
+							JOptionPane.showMessageDialog(null,lista, "Recomendaciones para " + n, JOptionPane.INFORMATION_MESSAGE);					
+					} catch (JessException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					
 				}
+				
 			});
-			//app.setVisible(true);
+			northUser.add(crearUser);
 			
-			this.add(app);
+			
+			JTextArea app = new JTextArea(c.listaHechos());
+			app.setEditable(false);
+			app.setBorder(new TitledBorder("Lista de Apps"));
+			JScrollPane barra = new JScrollPane(app);
+			
+			this.add(barra);
 			this.setVisible(true);
 			
 		} catch (Exception e) {
             e.printStackTrace();
         }
 	}
+	
 }
