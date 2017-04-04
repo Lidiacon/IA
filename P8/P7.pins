@@ -1,0 +1,492 @@
+; Tue Apr 04 21:44:13 CEST 2017
+; 
+;+ (version "3.5")
+;+ (build "Build 663")
+
+([Jess+engine] of  %3AJESS-ENGINE
+)
+
+([P7_Class0] of  Usuario
+
+	(aficiones Cocina Juego)
+	(a%C3%B1os 4)
+	(dispositivo "Windows")
+	(nombre "Fran")
+	(precio 10.0)
+	(recom
+		[P7_Class10]
+		[P7_Class20]))
+
+([P7_Class1] of  Desarrollador
+
+	(nombre "Viajacon"))
+
+([P7_Class10] of  App Juego
+
+	(desarrollado_por [P7_Class9])
+	(edad Todos)
+	(nombreApp "Monkey_Island")
+	(num_descargas 0)
+	(precio 0.4)
+	(puntuacion 5)
+	(SO
+		[P7_Class26]
+		[P7_Class24])
+	(tipo Juego)
+	(desarrollado_por [P7_Class9])
+	(edad Todos)
+	(nombreApp "Monkey_Island")
+	(num_descargas 0)
+	(precio 0.4)
+	(puntuacion 5)
+	(SO
+		[P7_Class26]
+		[P7_Class24])
+	(tipo Juego))
+
+([P7_Class11] of  Desarrollador
+
+	(nombre "Giant_Games"))
+
+([P7_Class12] of  App Juego Accion
+
+	(desarrollado_por [P7_Class11])
+	(edad Todos)
+	(nombreApp "Bastion")
+	(num_descargas 222450)
+	(precio 25.0)
+	(puntuacion 5)
+	(SO [P7_Class26])
+	(tipo Juego)
+	(desarrollado_por [P7_Class11])
+	(edad Todos)
+	(nombreApp "Bastion")
+	(num_descargas 222450)
+	(precio 25.0)
+	(puntuacion 5)
+	(SO [P7_Class26])
+	(tipo Juego)
+	(desarrollado_por [P7_Class11])
+	(edad Todos)
+	(nombreApp "Bastion")
+	(num_descargas 222450)
+	(precio 25.0)
+	(puntuacion 5)
+	(SO [P7_Class26])
+	(tipo Juego))
+
+([P7_Class13] of  App Juego Accion
+
+	(desarrollado_por [P7_Class11])
+	(edad Adulto)
+	(nombreApp "Transistor")
+	(num_descargas 0)
+	(precio 20.0)
+	(puntuacion 5)
+	(SO
+		[P7_Class26]
+		[P7_Class25]
+		[P7_Class24])
+	(tipo Juego)
+	(desarrollado_por [P7_Class11])
+	(edad Adulto)
+	(nombreApp "Transistor")
+	(num_descargas 0)
+	(precio 20.0)
+	(puntuacion 5)
+	(SO
+		[P7_Class26]
+		[P7_Class25]
+		[P7_Class24])
+	(tipo Juego)
+	(desarrollado_por [P7_Class11])
+	(edad Adulto)
+	(nombreApp "Transistor")
+	(num_descargas 0)
+	(precio 20.0)
+	(puntuacion 5)
+	(SO
+		[P7_Class26]
+		[P7_Class25]
+		[P7_Class24])
+	(tipo Juego))
+
+([P7_Class14] of  Desarrollador
+
+	(nombre "Electronic_Arts"))
+
+([P7_Class15] of  App Cocina
+
+	(desarrollado_por [P7_Class14])
+	(edad Todos)
+	(nombreApp "Comida_de_Andromeda")
+	(num_descargas 0)
+	(precio 20.0)
+	(puntuacion 0)
+	(SO [P7_Class24])
+	(tipo Cocina)
+	(desarrollado_por [P7_Class14])
+	(edad Todos)
+	(nombreApp "Comida_de_Andromeda")
+	(num_descargas 0)
+	(precio 20.0)
+	(puntuacion 0)
+	(SO [P7_Class24])
+	(tipo Cocina))
+
+([P7_Class16] of  App Juego
+
+	(desarrollado_por [P7_Class14])
+	(edad Todos)
+	(nombreApp "Sims_42")
+	(num_descargas 999999999)
+	(precio 20.0)
+	(puntuacion 1)
+	(SO
+		[P7_Class26]
+		[P7_Class24])
+	(tipo Juego)
+	(desarrollado_por [P7_Class14])
+	(edad Todos)
+	(nombreApp "Sims_42")
+	(num_descargas 999999999)
+	(precio 20.0)
+	(puntuacion 1)
+	(SO
+		[P7_Class26]
+		[P7_Class24])
+	(tipo Juego))
+
+([P7_Class17] of  App Consulta
+
+	(desarrollado_por [P7_Class14])
+	(edad Todos)
+	(nombreApp "PreguntasShepard")
+	(num_descargas 1240)
+	(precio 20.0)
+	(puntuacion 2)
+	(SO [P7_Class26])
+	(tipo Consulta)
+	(desarrollado_por [P7_Class14])
+	(edad Todos)
+	(nombreApp "PreguntasShepard")
+	(num_descargas 1240)
+	(precio 20.0)
+	(puntuacion 2)
+	(SO [P7_Class26])
+	(tipo Consulta))
+
+([P7_Class18] of  App Cocina
+
+	(desarrollado_por [P7_Class14])
+	(edad Adulto)
+	(nombreApp "eroComida")
+	(num_descargas 11111110)
+	(precio 25.0)
+	(puntuacion 4)
+	(SO [P7_Class25])
+	(tipo Cocina)
+	(desarrollado_por [P7_Class14])
+	(edad Adulto)
+	(nombreApp "eroComida")
+	(num_descargas 11111110)
+	(precio 25.0)
+	(puntuacion 4)
+	(SO [P7_Class25])
+	(tipo Cocina))
+
+([P7_Class19] of  Desarrollador
+
+	(nombre "Disney"))
+
+([P7_Class2] of  App Viaje
+
+	(desarrollado_por [P7_Class1])
+	(edad Todos)
+	(nombreApp "ViajeConNosotros")
+	(num_descargas 0)
+	(precio 0.0)
+	(puntuacion 3)
+	(SO [P7_Class24])
+	(tipo Viaje)
+	(desarrollado_por [P7_Class1])
+	(edad Todos)
+	(nombreApp "ViajeConNosotros")
+	(num_descargas 0)
+	(precio 0.0)
+	(puntuacion 3)
+	(SO [P7_Class24])
+	(tipo Viaje))
+
+([P7_Class20] of  App Juego Plataformas
+
+	(desarrollado_por [P7_Class19])
+	(edad Infantil)
+	(nombreApp "Mickey:_the_magic_mirror")
+	(num_descargas 0)
+	(precio 3.0)
+	(puntuacion 3)
+	(SO [P7_Class26])
+	(tipo Juego)
+	(desarrollado_por [P7_Class19])
+	(edad Infantil)
+	(nombreApp "Mickey:_the_magic_mirror")
+	(num_descargas 0)
+	(precio 3.0)
+	(puntuacion 3)
+	(SO [P7_Class26])
+	(tipo Juego)
+	(desarrollado_por [P7_Class19])
+	(edad Infantil)
+	(nombreApp "Mickey:_the_magic_mirror")
+	(num_descargas 0)
+	(precio 3.0)
+	(puntuacion 3)
+	(SO [P7_Class26])
+	(tipo Juego))
+
+([P7_Class21] of  App Viaje
+
+	(desarrollado_por [P7_Class19])
+	(edad Infantil)
+	(nombreApp "La_gran_guia_de_pato_Donald_para_el_viajero_experto")
+	(num_descargas 0)
+	(precio 10.0)
+	(puntuacion 0)
+	(SO [P7_Class24])
+	(tipo Viaje)
+	(desarrollado_por [P7_Class19])
+	(edad Infantil)
+	(nombreApp "La_gran_guia_de_pato_Donald_para_el_viajero_experto")
+	(num_descargas 0)
+	(precio 10.0)
+	(puntuacion 0)
+	(SO [P7_Class24])
+	(tipo Viaje))
+
+([P7_Class22] of  App Juego Rpg
+
+	(desarrollado_por [P7_Class19])
+	(edad Todos)
+	(nombreApp "Kingdom_Hearts")
+	(num_descargas 0)
+	(precio 20.0)
+	(puntuacion 4)
+	(SO
+		[P7_Class25]
+		[P7_Class24])
+	(tipo Juego)
+	(desarrollado_por [P7_Class19])
+	(edad Todos)
+	(nombreApp "Kingdom_Hearts")
+	(num_descargas 0)
+	(precio 20.0)
+	(puntuacion 4)
+	(SO
+		[P7_Class25]
+		[P7_Class24])
+	(tipo Juego)
+	(desarrollado_por [P7_Class19])
+	(edad Todos)
+	(nombreApp "Kingdom_Hearts")
+	(num_descargas 0)
+	(precio 20.0)
+	(puntuacion 4)
+	(SO
+		[P7_Class25]
+		[P7_Class24])
+	(tipo Juego))
+
+([P7_Class23] of  App Consulta
+
+	(desarrollado_por [P7_Class19])
+	(edad Todos)
+	(nombreApp "ElsaContesta")
+	(num_descargas 999999999)
+	(precio 50.0)
+	(puntuacion 1)
+	(SO
+		[P7_Class26]
+		[P7_Class24])
+	(tipo Consulta)
+	(desarrollado_por [P7_Class19])
+	(edad Todos)
+	(nombreApp "ElsaContesta")
+	(num_descargas 999999999)
+	(precio 50.0)
+	(puntuacion 1)
+	(SO
+		[P7_Class26]
+		[P7_Class24])
+	(tipo Consulta))
+
+([P7_Class24] of  SystemO
+
+	(nomSO "iOs"))
+
+([P7_Class25] of  SystemO
+
+	(nomSO "Android"))
+
+([P7_Class26] of  SystemO
+
+	(nomSO "Windows"))
+
+([P7_Class3] of  App Cocina
+
+	(desarrollado_por [P7_Class1])
+	(edad Todos)
+	(nombreApp "CocibaConNosotros")
+	(num_descargas 0)
+	(precio 0.0)
+	(puntuacion 3)
+	(SO [P7_Class24])
+	(tipo Cocina)
+	(desarrollado_por [P7_Class1])
+	(edad Todos)
+	(nombreApp "CocibaConNosotros")
+	(num_descargas 0)
+	(precio 0.0)
+	(puntuacion 3)
+	(SO [P7_Class24])
+	(tipo Cocina))
+
+([P7_Class307] of  Usuario
+
+	(aficiones Viaje Rpg Accion Consulta)
+	(a%C3%B1os 20)
+	(dispositivo "iOs")
+	(nombre "Jorge")
+	(precio 50.0)
+	(recom
+		[P7_Class2]
+		[P7_Class6]
+		[P7_Class7]
+		[P7_Class13]
+		[P7_Class22]))
+
+([P7_Class4] of  App Viaje
+
+	(desarrollado_por [P7_Class1])
+	(edad Infantil)
+	(nombreApp "Conoce_Paris")
+	(num_descargas 20)
+	(precio 120.0)
+	(puntuacion 1)
+	(SO [P7_Class24])
+	(tipo Viaje)
+	(desarrollado_por [P7_Class1])
+	(edad Infantil)
+	(nombreApp "Conoce_Paris")
+	(num_descargas 20)
+	(precio 120.0)
+	(puntuacion 1)
+	(SO [P7_Class24])
+	(tipo Viaje))
+
+([P7_Class5] of  Desarrollador
+
+	(nombre "Nintendo"))
+
+([P7_Class6] of  App Juego Rpg
+
+	(desarrollado_por [P7_Class5])
+	(edad Todos)
+	(nombreApp "Fire_Emblem:_Heroes")
+	(num_descargas 0)
+	(precio 0.0)
+	(puntuacion 5)
+	(SO
+		[P7_Class25]
+		[P7_Class24])
+	(tipo Juego)
+	(desarrollado_por [P7_Class5])
+	(edad Todos)
+	(nombreApp "Fire_Emblem:_Heroes")
+	(num_descargas 0)
+	(precio 0.0)
+	(puntuacion 5)
+	(SO
+		[P7_Class25]
+		[P7_Class24])
+	(tipo Juego)
+	(desarrollado_por [P7_Class5])
+	(edad Todos)
+	(nombreApp "Fire_Emblem:_Heroes")
+	(num_descargas 0)
+	(precio 0.0)
+	(puntuacion 5)
+	(SO
+		[P7_Class25]
+		[P7_Class24])
+	(tipo Juego))
+
+([P7_Class7] of  App Juego Rpg
+
+	(desarrollado_por [P7_Class5])
+	(edad Adulto)
+	(nombreApp "Metroid")
+	(num_descargas 2222220)
+	(precio 10.0)
+	(puntuacion 5)
+	(SO
+		[P7_Class25]
+		[P7_Class24])
+	(tipo Juego)
+	(desarrollado_por [P7_Class5])
+	(edad Adulto)
+	(nombreApp "Metroid")
+	(num_descargas 2222220)
+	(precio 10.0)
+	(puntuacion 5)
+	(SO
+		[P7_Class25]
+		[P7_Class24])
+	(tipo Juego)
+	(desarrollado_por [P7_Class5])
+	(edad Adulto)
+	(nombreApp "Metroid")
+	(num_descargas 2222220)
+	(precio 10.0)
+	(puntuacion 5)
+	(SO
+		[P7_Class25]
+		[P7_Class24])
+	(tipo Juego))
+
+([P7_Class8] of  App Juego Plataformas
+
+	(desarrollado_por [P7_Class5])
+	(edad Todos)
+	(nombreApp "Mario")
+	(num_descargas 20000)
+	(precio 20.5)
+	(puntuacion 4)
+	(SO
+		[P7_Class25]
+		[P7_Class24])
+	(tipo Juego)
+	(desarrollado_por [P7_Class5])
+	(edad Todos)
+	(nombreApp "Mario")
+	(num_descargas 20000)
+	(precio 20.5)
+	(puntuacion 4)
+	(SO
+		[P7_Class25]
+		[P7_Class24])
+	(tipo Juego)
+	(desarrollado_por [P7_Class5])
+	(edad Todos)
+	(nombreApp "Mario")
+	(num_descargas 20000)
+	(precio 20.5)
+	(puntuacion 4)
+	(SO
+		[P7_Class25]
+		[P7_Class24])
+	(tipo Juego))
+
+([P7_Class9] of  Desarrollador
+
+	(nombre "Lucas_Arts"))

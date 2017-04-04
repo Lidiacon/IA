@@ -1,0 +1,338 @@
+; Tue Apr 04 21:44:13 CEST 2017
+; 
+;+ (version "3.5")
+;+ (build "Build 663")
+
+
+(defclass %3ACLIPS_TOP_LEVEL_SLOT_CLASS "Fake class to save top-level slot information"
+	(is-a USER)
+	(role abstract)
+	(multislot hicieron
+		(type INSTANCE)
+;+		(allowed-classes App)
+		(create-accessor read-write))
+	(single-slot nombreU
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot num_descargas
+		(type INTEGER)
+		(range 0 2147483647)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot tipo
+		(type SYMBOL)
+		(allowed-values Juego Cocina Viaje Consulta)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot dispositivo
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot precio
+		(type FLOAT)
+		(range 0.0 %3FVARIABLE)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot puntuacion
+		(type INTEGER)
+		(range 0 5)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot %3ADEFINITION-NAME
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot aficiones
+		(type SYMBOL)
+		(allowed-values Rpg Accion Plataformas Juego Viaje Consulta Cocina)
+		(create-accessor read-write))
+	(multislot SO
+		(type INSTANCE)
+;+		(allowed-classes SystemO)
+		(cardinality 1 ?VARIABLE)
+		(create-accessor read-write))
+	(single-slot %3AKB-SAVE
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
+		(default FALSE)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot %3ASTARTUP-FILE
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot nombreApp
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot %3ASTARTUP-EXPRESSION
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot nomSO
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot a%C3%B1os
+		(type INTEGER)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot %3ADEFINITION
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot P7_Class127
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot genero
+		(type INSTANCE)
+;+		(allowed-classes)
+		(create-accessor read-write))
+	(single-slot nombreGen
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot desarrollado_por
+		(type INSTANCE)
+;+		(allowed-classes Desarrollador)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot nombre
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(multislot recom
+		(type INSTANCE)
+;+		(allowed-classes App)
+		(create-accessor read-write))
+	(single-slot edad
+		(type SYMBOL)
+		(allowed-values Adulto Infantil Todos)
+;+		(cardinality 1 1)
+		(create-accessor read-write)))
+
+(defclass %3AJESS-ENGINE
+	(is-a %3ASYSTEM-CLASS)
+	(role concrete)
+	(single-slot %3ASTARTUP-FILE
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot %3ASTARTUP-EXPRESSION
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass %3AJESS-DEFINITION
+	(is-a %3ASYSTEM-CLASS)
+	(role abstract)
+	(single-slot %3ADEFINITION-NAME
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot %3AKB-SAVE
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
+		(default FALSE)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot %3ADEFINITION
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass %3AJESS-DEFGLOBAL
+	(is-a %3AJESS-DEFINITION)
+	(role concrete))
+
+(defclass %3AJESS-DEFTEMPLATE
+	(is-a %3AJESS-DEFINITION)
+	(role concrete)
+	(multislot %3ADOCUMENTATION
+		(type STRING)
+		(create-accessor read-write)))
+
+(defclass %3AJESS-DEFFACTS
+	(is-a %3AJESS-DEFINITION)
+	(role concrete)
+	(multislot %3ADOCUMENTATION
+		(type STRING)
+		(create-accessor read-write)))
+
+(defclass %3AJESS-DEFMESSAGE-HANDLER
+	(is-a %3AJESS-DEFINITION)
+	(role concrete)
+	(multislot %3ADOCUMENTATION
+		(type STRING)
+		(create-accessor read-write)))
+
+(defclass %3AJESS-DEFMETHOD
+	(is-a %3AJESS-DEFINITION)
+	(role concrete)
+	(multislot %3ADOCUMENTATION
+		(type STRING)
+		(create-accessor read-write)))
+
+(defclass %3ARULE
+	(is-a %3ASYSTEM-CLASS)
+	(role abstract)
+	(single-slot %3ADEFINITION-NAME
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot %3ADEFINITION
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass %3AJESS-RULE
+	(is-a %3AJESS-DEFINITION %3ARULE)
+	(role concrete)
+	(multislot %3ADOCUMENTATION
+		(type STRING)
+		(create-accessor read-write)))
+
+(defclass %3AFUNCTION
+	(is-a %3ASYSTEM-CLASS)
+	(role abstract)
+	(single-slot %3ADEFINITION-NAME
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot %3ADEFINITION
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass %3AJESS-FUNCTION
+	(is-a %3AFUNCTION %3AJESS-DEFINITION)
+	(role concrete)
+	(multislot %3ADOCUMENTATION
+		(type STRING)
+		(create-accessor read-write)))
+
+(defclass App
+	(is-a USER)
+	(role concrete)
+	(single-slot precio
+		(type FLOAT)
+		(range 0.0 %3FVARIABLE)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot desarrollado_por
+		(type INSTANCE)
+;+		(allowed-classes Desarrollador)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot num_descargas
+		(type INTEGER)
+		(range 0 2147483647)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot edad
+		(type SYMBOL)
+		(allowed-values Adulto Infantil Todos)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(multislot SO
+		(type INSTANCE)
+;+		(allowed-classes SystemO)
+		(cardinality 1 ?VARIABLE)
+		(create-accessor read-write))
+	(single-slot tipo
+		(type SYMBOL)
+		(allowed-values Juego Cocina Viaje Consulta)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot P7_Class127
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot puntuacion
+		(type INTEGER)
+		(range 0 5)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot nombreApp
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write)))
+
+(defclass Juego
+	(is-a App)
+	(role concrete))
+
+(defclass Rpg
+	(is-a Juego)
+	(role concrete))
+
+(defclass Accion
+	(is-a Juego)
+	(role concrete))
+
+(defclass Plataformas
+	(is-a Juego)
+	(role concrete))
+
+(defclass Cocina
+	(is-a App)
+	(role concrete))
+
+(defclass Viaje
+	(is-a App)
+	(role concrete))
+
+(defclass Consulta
+	(is-a App)
+	(role concrete))
+
+(defclass Desarrollador
+	(is-a USER)
+	(role concrete)
+	(multislot hicieron
+		(type INSTANCE)
+;+		(allowed-classes App)
+		(create-accessor read-write))
+	(single-slot nombre
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write)))
+
+(defclass SystemO
+	(is-a USER)
+	(role concrete)
+	(single-slot nomSO
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write)))
+
+(defclass Usuario
+	(is-a USER)
+	(role concrete)
+	(multislot recom
+		(type INSTANCE)
+;+		(allowed-classes App)
+		(create-accessor read-write))
+	(single-slot precio
+		(type FLOAT)
+		(range 0.0 %3FVARIABLE)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(multislot aficiones
+		(type SYMBOL)
+		(allowed-values Rpg Accion Plataformas Juego Viaje Consulta Cocina)
+		(create-accessor read-write))
+	(single-slot nombre
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot a%C3%B1os
+		(type INTEGER)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot dispositivo
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write)))
